@@ -41,16 +41,16 @@ function reset() {
             { x: 170, y: 200 },
             { x: 160, y: 200 }
         ]
-        drawFood();
-        move_snake();
-        drawSnake()
+        main();
     }, 3000)
 }
 
 function main() {
 
-    if (has_game_ended()) reset();
-    else {
+    if (has_game_ended()) {
+        reset();
+        return;
+    } else {
         changing_direction = false;
         setTimeout(function onTick() {
             clear_board();
