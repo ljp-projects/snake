@@ -123,15 +123,16 @@ function has_game_ended() {
 function move_snake() {
     const head = { x: snake[0].x + dx, y: snake[0].y + dy };
     snake.unshift(head);
-    const has_eaten_food = head.x === food_x && head.y === food_y;
+  
+    const has_eaten_food = snake[0].x >= food_x && snake[0].x < food_x + sqrSize && snake[0].y >= food_y && snake[0].y < food_y + sqrSize;
     if (has_eaten_food) {
-        score += 1;
-        document.getElementById('score').innerHTML = score;
-        gen_food();
+      score += 1;
+      document.getElementById('score').innerHTML = score;
+      gen_food();
     } else {
-        snake.pop();
+      snake.pop();
     }
-}
+  }
 
 function random_food(min, max) {
     return Math.round((Math.random() * (max - min) + min) / sqrSize) * sqrSize;
