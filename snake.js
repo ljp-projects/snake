@@ -13,6 +13,10 @@ let snake = [
 
 const snakeboard = document.getElementById("game");
 const snakeboard_ctx = snakeboard.getContext("2d");
+
+let dx = 10;
+let dy = 0;
+
 main();
 
 function main() {
