@@ -5,11 +5,11 @@
     const snake_border = 'darkblue';
 
     let snake = [
-        { x: 200, y: 200 },
-        { x: 190, y: 200 },
-        { x: 180, y: 200 },
-        { x: 170, y: 200 },
-        { x: 160, y: 200 }
+        { x: document.documentElement.clientWidth / 2, y: document.documentElement.clientHeight / 2 },
+        { x: document.documentElement.clientWidth / 2 - 10, y: document.documentElement.clientHeight / 2 },
+        { x: document.documentElement.clientWidth / 2 - 20, y: document.documentElement.clientHeight / 2 },
+        { x: document.documentElement.clientWidth / 2 - 30, y: document.documentElement.clientHeight / 2 },
+        { x: document.documentElement.clientWidth / 2 - 40, y: document.documentElement.clientHeight / 2 }
     ]
 
     let score = 0;
