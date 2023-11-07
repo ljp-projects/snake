@@ -12,5 +12,5 @@
     const board = document.getElementById("game")
 
     board.clientWidth = vw(50)
-    board.clientHieght = vh(50)
+    board.clientHeight = vh(50)
 })()
