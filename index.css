@@ -1,6 +1,22 @@
-#game {
-    width: 50vw;
-    height: 50vh;
+@media (max-width: 300px) {
+    #game {
+        width: 200px;
+        height: 400px;
+    }
+}
+
+@media (max-width: 500px) {
+    #game {
+        width: 400px;
+        height: 800px;
+    }
+}
+
+@media (max-width: 800px) {
+    #game {
+        width: 700px;
+        height: 1400px;
+    }
 }
 
 h1, button {
