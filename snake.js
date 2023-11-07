@@ -34,23 +34,26 @@ function reset() {
     snakeboard_ctx.fillText(text, 10, 50);
     setTimeout(() => {
         clear_board();
-        main();
+        drawFood();
+        move_snake();
+        drawSnake()
     }, 3000)
 }
 
 function main() {
 
     if (has_game_ended()) reset();
-
-    changing_direction = false;
-    setTimeout(function onTick() {
-        clear_board();
-        drawFood();
-        move_snake();
-        drawSnake();
-        // I AM RECURSION
-        main();
-    }, 100)
+    else {
+        changing_direction = false;
+        setTimeout(function onTick() {
+            clear_board();
+            drawFood();
+            move_snake();
+            drawSnake();
+            // I AM RECURSION
+            main();
+        }, 100)
+    }
 }
 
 function clear_board() {
