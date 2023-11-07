@@ -47,6 +47,7 @@ function reset() {
             { x: 160, y: 200 }
         ]
         score = 0;
+        document.getElementById('score').innerHTML = score;
         changing_direction = false;
         food_x;
         food_y;
