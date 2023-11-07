@@ -6,11 +6,11 @@ const snake_border = 'darkblue';
 const snakeboard = document.getElementById("game");
 
 let snake = [
-    { x: snakeboard.clientWidth / 2, y: snakeboard.clientHeight / 2 },
-    { x: snakeboard.clientWidth / 2 - 10, y: snakeboard.clientHeight / 2 },
-    { x: snakeboard.clientWidth / 2 - 20, y: snakeboard.clientHeight / 2 },
-    { x: snakeboard.clientWidth / 2 - 30, y: snakeboard.clientHeight / 2 },
-    { x: snakeboard.clientWidth / 2 - 40, y: snakeboard.clientHeight / 2 }
+    { x: snakeboard.width / 2, y: snakeboard.height / 2 },
+    { x: snakeboard.width / 2 - 10, y: snakeboard.height / 2 },
+    { x: snakeboard.width / 2 - 20, y: snakeboard.height / 2 },
+    { x: snakeboard.width / 2 - 30, y: snakeboard.height / 2 },
+    { x: snakeboard.width / 2 - 40, y: snakeboard.height / 2 }
 ]
 
 let score = 0;
@@ -40,11 +40,11 @@ function reset() {
     setTimeout(() => {
         clear_board();
         snake = [
-            { x: snakeboard.clientWidth / 2, y: snakeboard.clientHeight / 2 },
-            { x: snakeboard.clientWidth / 2 - 10, y: snakeboard.clientHeight / 2 },
-            { x: snakeboard.clientWidth / 2 - 20, y: snakeboard.clientHeight / 2 },
-            { x: snakeboard.clientWidth / 2 - 30, y: snakeboard.clientHeight / 2 },
-            { x: snakeboard.clientWidth / 2 - 40, y: snakeboard.clientHeight / 2 }
+            { x: snakeboard.width / 2, y: snakeboard.height / 2 },
+            { x: snakeboard.width / 2 - 10, y: snakeboard.height / 2 },
+            { x: snakeboard.width / 2 - 20, y: snakeboard.height / 2 },
+            { x: snakeboard.width / 2 - 30, y: snakeboard.height / 2 },
+            { x: snakeboard.width / 2 - 40, y: snakeboard.height / 2 }
         ]
         document.getElementById('score').innerHTML = score;
         score = 0;
@@ -89,15 +89,15 @@ function drawSnake() {
 function drawFood() {
     snakeboard_ctx.fillStyle = 'lightgreen';
     snakeboard_ctx.strokestyle = 'darkgreen';
-    snakeboard_ctx.fillRect(food_x, food_y, snakeboard.clientHeight / 40, snakeboard.clientWidth / 40);
-    snakeboard_ctx.strokeRect(food_x, food_y, snakeboard.clientHeight / 40, snakeboard.clientWidth / 40);
+    snakeboard_ctx.fillRect(food_x, food_y, snakeboard.height / 40, snakeboard.height / 40);
+    snakeboard_ctx.strokeRect(food_x, food_y, snakeboard.height / 40, snakeboard.height / 40);
 }
 
 function drawSnakePart(snakePart) {
     snakeboard_ctx.fillStyle = snake_col;
     snakeboard_ctx.strokestyle = snake_border;
-    snakeboard_ctx.fillRect(snakePart.x, snakePart.y, snakeboard.clientHeight / 40, snakeboard.clientWidth / 40);
-    snakeboard_ctx.strokeRect(snakePart.x, snakePart.y, snakeboard.clientHeight / 40, snakeboard.clientWidth / 40);
+    snakeboard_ctx.fillRect(snakePart.x, snakePart.y, snakeboard.height / 40, snakeboard.height / 40);
+    snakeboard_ctx.strokeRect(snakePart.x, snakePart.y, snakeboard.height / 40, snakeboard.height / 40);
 }
 
 function has_game_ended() {
@@ -105,19 +105,19 @@ function has_game_ended() {
         if (snake[i].x === snake[0].x && snake[i].y === snake[0].y) return true
     }
     const hitLeftWall = snake[0].x < 0;
-    const hitRightWall = snake[0].x > snakeboard.width - 10;
+    const hitRightWall = snake[0].x > snakeboard.width - snakeboard.height / 40;
     const hitToptWall = snake[0].y < 0;
-    const hitBottomWall = snake[0].y > snakeboard.height - 10;
+    const hitBottomWall = snake[0].y > snakeboard.height - snakeboard.height / 40;
     return hitLeftWall || hitRightWall || hitToptWall || hitBottomWall
 }
 
 function random_food(min, max) {
-    return Math.round((Math.random() * (max - min) + min) / 10) * 10;
+    return Math.round((Math.random() * (max - min) + min) / snakeboard.height / 40) * snakeboard.height / 40;
 }
 
 function gen_food() {
-    food_x = random_food(0, snakeboard.width - 10);
-    food_y = random_food(0, snakeboard.height - 10);
+    food_x = random_food(0, snakeboard.width - snakeboard.height / 40);
+    food_y = random_food(0, snakeboard.height - snakeboard.height / 40);
     snake.forEach(function has_snake_eaten_food(part) {
         const has_eaten = part.x == food_x && part.y == food_y;
         if (has_eaten) gen_food();
