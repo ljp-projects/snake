@@ -155,7 +155,7 @@ function change_direction(event) {
 }
 
 down.addEventListener('click', () => {
-    const goingUp = dx === 10;
+    const goingUp = dy === 10;
     
     if (!goingUp) {
         dx = 0;
@@ -166,7 +166,7 @@ down.addEventListener('click', () => {
 
 
 up.addEventListener('click', () => {
-    const goingDown = dx === -10;
+    const goingDown = dy === -10;
     
     if (!goingDown) {
         dx = 0;
