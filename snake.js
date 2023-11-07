@@ -1,5 +1,7 @@
-const board = document.getElementById("game")
-const boardCtx = board.getContext("2")
+const board_border = 'black';
+const board_background = "white";
+const snake_col = 'lightred';
+const snake_border = 'darkred';
 
 let snake = [
     { x: 200, y: 200 },
@@ -9,15 +11,30 @@ let snake = [
     { x: 160, y: 200 }
 ]
 
-const drawSnakePart = (snakePart) => {
-    boardCtx.fillStyle = 'grey'
-    boardCtx.strokeStyle = 'black'
-    boardCtx.fillRect(snakePart.x, snakePart.y, 10, 10)
-    boardCtx.strokeRect(snakePart.x, snakePart.y, 10, 10)
+const snakeboard = document.getElementById("game");
+const snakeboard_ctx = snakeboard.getContext("2d");
+main();
+
+function main() {
+    clearCanvas();
+    drawSnake();
 }
 
-const drawSnake = () => {
-    snake.forEach(drawSnakePart);
+function clearCanvas() {
+    snakeboard_ctx.fillStyle = board_background;
+    snakeboard_ctx.strokestyle = board_border;
+    snakeboard_ctx.fillRect(0, 0, snakeboard.width, snakeboard.height);
+    snakeboard_ctx.strokeRect(0, 0, snakeboard.width, snakeboard.height);
 }
 
-drawSnake()
+function drawSnake() {
+    snake.forEach(drawSnakePart)
+}
+
+function drawSnakePart(snakePart) {
+
+    snakeboard_ctx.fillStyle = snake_col;
+    snakeboard_ctx.strokestyle = snake_border;
+    snakeboard_ctx.fillRect(snakePart.x, snakePart.y, 10, 10);
+    snakeboard_ctx.strokeRect(snakePart.x, snakePart.y, 10, 10);
+}
