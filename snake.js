@@ -41,6 +41,12 @@ function reset() {
             { x: 170, y: 200 },
             { x: 160, y: 200 }
         ]
+        score = 0;
+        changing_direction = false;
+        food_x;
+        food_y;
+        dx = 10;
+        dy = 0;
         main();
     }, 3000)
 }
