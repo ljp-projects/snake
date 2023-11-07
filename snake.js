@@ -6,10 +6,11 @@ const snake_border = 'darkblue';
 
 const snakeboard = document.getElementById("game");
 
-snakeboard.width = document.documentElement.clientWidth
-snakeboard.height = document.documentElement.clientHeight / 1.5
-
+const gameSize = (document.documentElement.clientWidth + document.documentElement.clientHeight / 1.5) / 2
 const sqrSize = snakeboard.height / 50
+
+snakeboard.width = gameSize
+snakeboard.height = gameSize
 
 let snake = [
     { x: snakeboard.width / 2.5, y: snakeboard.height / 2.5 },
