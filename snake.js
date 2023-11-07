@@ -5,11 +5,11 @@ const snake_col = 'lightblue';
 const snake_border = 'darkblue';
 
 let snake = [
-    { x: document.documentElement.clientWidth / 2, y: document.documentElement.clientHeight / 2 },
-    { x: document.documentElement.clientWidth / 2 - 10, y: document.documentElement.clientHeight / 2 },
-    { x: document.documentElement.clientWidth / 2 - 20, y: document.documentElement.clientHeight / 2 },
-    { x: document.documentElement.clientWidth / 2 - 30, y: document.documentElement.clientHeight / 2 },
-    { x: document.documentElement.clientWidth / 2 - 40, y: document.documentElement.clientHeight / 2 }
+    { x: snakeboard.clientWidth / 2, y: snakeboard.clientHeight / 2 },
+    { x: snakeboard.clientWidth / 2 - 10, y: snakeboard.clientHeight / 2 },
+    { x: snakeboard.clientWidth / 2 - 20, y: snakeboard.clientHeight / 2 },
+    { x: snakeboard.clientWidth / 2 - 30, y: snakeboard.clientHeight / 2 },
+    { x: snakeboard.clientWidth / 2 - 40, y: snakeboard.clientHeight / 2 }
 ]
 
 let score = 0;
@@ -40,11 +40,11 @@ function reset() {
     setTimeout(() => {
         clear_board();
         snake = [
-            { x: document.documentElement.clientWidth / 2, y: document.documentElement.clientHeight / 2 },
-            { x: document.documentElement.clientWidth / 2 - 10, y: document.documentElement.clientHeight / 2 },
-            { x: document.documentElement.clientWidth / 2 - 20, y: document.documentElement.clientHeight / 2 },
-            { x: document.documentElement.clientWidth / 2 - 30, y: document.documentElement.clientHeight / 2 },
-            { x: document.documentElement.clientWidth / 2 - 40, y: document.documentElement.clientHeight / 2 }
+            { x: snakeboard.clientWidth / 2, y: snakeboard.clientHeight / 2 },
+            { x: snakeboard.clientWidth / 2 - 10, y: snakeboard.clientHeight / 2 },
+            { x: snakeboard.clientWidth / 2 - 20, y: snakeboard.clientHeight / 2 },
+            { x: snakeboard.clientWidth / 2 - 30, y: snakeboard.clientHeight / 2 },
+            { x: snakeboard.clientWidth / 2 - 40, y: snakeboard.clientHeight / 2 }
         ]
         document.getElementById('score').innerHTML = score;
         score = 0;
