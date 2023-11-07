@@ -42,7 +42,6 @@ function reset() {
             { x: 160, y: 200 }
         ]
         main();
-        main();
     }, 3000)
 }
 
