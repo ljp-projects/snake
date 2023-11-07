@@ -3,6 +3,7 @@ const board_border = 'black';
 const board_background = "white";
 const snake_col = 'lightblue';
 const snake_border = 'darkblue';
+const snakeboard = document.getElementById("game");
 
 let snake = [
     { x: snakeboard.clientWidth / 2, y: snakeboard.clientHeight / 2 },
@@ -19,7 +20,6 @@ let food_y;
 let dx = 10;
 let dy = 0;
 
-const snakeboard = document.getElementById("game");
 const snakeboard_ctx = snakeboard.getContext("2d");
 const right = document.getElementById("right")
 const left = document.getElementById("left")
