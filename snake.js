@@ -7,7 +7,7 @@ const snake_border = 'darkblue';
 const snakeboard = document.getElementById("game");
 
 snakeboard.width = document.documentElement.clientWidth
-snakeboard.height = document.documentElement.clientHeight
+snakeboard.height = document.documentElement.clientHeight - 40
 
 const sqrSize = snakeboard.height / 40
 
@@ -108,13 +108,29 @@ function drawSnakePart(snakePart) {
 
 function has_game_ended() {
     for (let i = 4; i < snake.length; i++) {
-        if (snake[i].x === snake[0].x && snake[i].y === snake[0].y) return true
+        if (snake[i].x === snake[0].x && snake[i].y === snake[0].y) return true;
     }
+
     const hitLeftWall = snake[0].x < 0;
     const hitRightWall = snake[0].x > snakeboard.width - sqrSize;
     const hitToptWall = snake[0].y < 0;
     const hitBottomWall = snake[0].y > snakeboard.height - sqrSize;
-    return hitLeftWall || hitRightWall || hitToptWall || hitBottomWall
+
+    return hitLeftWall || hitRightWall || hitToptWall || hitBottomWall;
+}
+
+function move_snake() {
+    const head = { x: snake[0].x + dx, y: snake[0].y + dy };
+    snake.unshift(head);
+
+    const has_eaten_food = snake[0].x === food_x && snake[0].y === food_y;
+    if (has_eaten_food) {
+        score += 1;
+        document.getElementById('score').innerHTML = score;
+        gen_food();
+    } else {
+        snake.pop();
+    }
 }
 
 function random_food(min, max) {
@@ -198,16 +214,3 @@ right.addEventListener('click', () => {
         dy = 0;
     }
 })
-
-function move_snake() {
-    const head = { x: snake[0].x + dx, y: snake[0].y + dy };
-    snake.unshift(head);
-    const has_eaten_food = snake[0].x === food_x && snake[0].y === food_y;
-    if (has_eaten_food) {
-        score += 1;
-        document.getElementById('score').innerHTML = score;
-        gen_food();
-    } else {
-        snake.pop();
-    }
-}
