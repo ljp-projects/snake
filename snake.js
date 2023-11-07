@@ -9,7 +9,7 @@ const snakeboard = document.getElementById("game");
 snakeboard.width = document.documentElement.clientWidth
 snakeboard.height = document.documentElement.clientHeight
 
-const sqrSize = snakeboard.height / 20
+const sqrSize = snakeboard.height / 40
 
 let snake = [
     { x: snakeboard.width / 2, y: snakeboard.height / 2 },
