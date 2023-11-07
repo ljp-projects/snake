@@ -89,15 +89,15 @@ function drawSnake() {
 function drawFood() {
     snakeboard_ctx.fillStyle = 'lightgreen';
     snakeboard_ctx.strokestyle = 'darkgreen';
-    snakeboard_ctx.fillRect(food_x, food_y, 10, 10);
-    snakeboard_ctx.strokeRect(food_x, food_y, 10, 10);
+    snakeboard_ctx.fillRect(food_x, food_y, snakeboard.clientHeight / 40, snakeboard.clientWidth / 40);
+    snakeboard_ctx.strokeRect(food_x, food_y, snakeboard.clientHeight / 40, snakeboard.clientWidth / 40);
 }
 
 function drawSnakePart(snakePart) {
     snakeboard_ctx.fillStyle = snake_col;
     snakeboard_ctx.strokestyle = snake_border;
-    snakeboard_ctx.fillRect(snakePart.x, snakePart.y, 10, 10);
-    snakeboard_ctx.strokeRect(snakePart.x, snakePart.y, 10, 10);
+    snakeboard_ctx.fillRect(snakePart.x, snakePart.y, snakeboard.clientHeight / 40, snakeboard.clientWidth / 40);
+    snakeboard_ctx.strokeRect(snakePart.x, snakePart.y, snakeboard.clientHeight / 40, snakeboard.clientWidth / 40);
 }
 
 function has_game_ended() {
