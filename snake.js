@@ -21,7 +21,7 @@ let changing_direction = false
 main();
 
 function main() {
-    if (has_game_ended()) return;
+    if (hasGameEnded()) return;
     changing_direction = false;
     setTimeout(function onTick() {
         clearBoard();
