@@ -24,7 +24,7 @@ function main() {
     if (hasGameEnded()) return;
     changing_direction = false;
     setTimeout(function onTick() {
-        clearBoard();
+        clearCanvas();
         moveSnake();
         drawSnake();
         // I AM RECURSION
@@ -101,7 +101,7 @@ function hasGameEnded() {
     const hitRightWall = snake[0].x > snakeboard.width - 10;
     const hitToptWall = snake[0].y < 0;
     const hitBottomWall = snake[0].y > snakeboard.height - 10;
-    
+
     return hitLeftWall || hitRightWall || hitToptWall || hitBottomWall
 }
 
