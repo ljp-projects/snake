@@ -26,9 +26,19 @@ gen_food();
 
 document.addEventListener("keydown", change_direction);
 
+function reset() {
+    clear_board();
+    score = 0;
+    snakeboard_ctx.fill(`You lost. Score: ${score}.`);
+    setTimeout(() => {
+        clear_board();
+        main();
+    }, 3000)
+}
+
 function main() {
 
-    if (has_game_ended()) return;
+    if (has_game_ended()) reset();
 
     changing_direction = false;
     setTimeout(function onTick() {
@@ -126,7 +136,7 @@ function move_snake() {
     snake.unshift(head);
     const has_eaten_food = snake[0].x === food_x && snake[0].y === food_y;
     if (has_eaten_food) {
-        score += 10;
+        score += 1;
         document.getElementById('score').innerHTML = score;
         gen_food();
     } else {
