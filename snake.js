@@ -20,6 +20,10 @@ let dy = 0;
 
 const snakeboard = document.getElementById("game");
 const snakeboard_ctx = snakeboard.getContext("2d");
+const right = document.getElementById("right")
+const left = document.getElementById("left")
+const up = document.getElementById("up")
+const down = document.getElementById("down")
 main();
 
 gen_food();
@@ -149,6 +153,44 @@ function change_direction(event) {
         dy = 10;
     }
 }
+
+down.addEventListener('click', () => {
+    const goingUp = dx === 10;
+    
+    if (!goingUp) {
+        dx = 0;
+        dy = 10;
+    }
+})
+
+
+
+up.addEventListener('click', () => {
+    const goingDown = dx === -10;
+    
+    if (!goingDown) {
+        dx = 0;
+        dy = -10;
+    }
+})
+
+left.addEventListener('click', () => {
+    const goingRight = dx === 10;
+    
+    if (!goingRight) {
+        dx = -10;
+        dy = 0;
+    }
+})
+
+right.addEventListener('click', () => {
+    const goingLeft = dx === -10;
+    
+    if (!goingLeft) {
+        dx = 10;
+        dy = 0;
+    }
+})
 
 function move_snake() {
     const head = { x: snake[0].x + dx, y: snake[0].y + dy };
