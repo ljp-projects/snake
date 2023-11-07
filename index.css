@@ -1,0 +1,13 @@
+#game {
+    width: 50vw;
+    height: 50vh;
+}
+
+h1, button {
+    font-family: sans-serif;
+}
+
+button {
+    width: 5vh;
+    height: 5vh;
+}
