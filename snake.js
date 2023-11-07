@@ -34,6 +34,13 @@ function reset() {
     snakeboard_ctx.fillText(text, 10, 50);
     setTimeout(() => {
         clear_board();
+        snake = [
+            { x: 200, y: 200 },
+            { x: 190, y: 200 },
+            { x: 180, y: 200 },
+            { x: 170, y: 200 },
+            { x: 160, y: 200 }
+        ]
         drawFood();
         move_snake();
         drawSnake()
