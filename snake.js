@@ -112,12 +112,12 @@ function has_game_ended() {
 }
 
 function random_food(min, max) {
-    return Math.round((Math.random() * (max - min) + min) / snakeboard.height / 40) * snakeboard.height / 40;
+    return Math.round((Math.random() * (max - min) + min) / 10) * 10;
 }
 
 function gen_food() {
-    food_x = random_food(0, snakeboard.width - snakeboard.height / 40);
-    food_y = random_food(0, snakeboard.height - snakeboard.height / 40);
+    food_x = random_food(0, snakeboard.width - 10);
+    food_y = random_food(0, snakeboard.height - 10);
     snake.forEach(function has_snake_eaten_food(part) {
         const has_eaten = part.x == food_x && part.y == food_y;
         if (has_eaten) gen_food();
