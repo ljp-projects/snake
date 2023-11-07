@@ -7,7 +7,7 @@ const snake_border = 'darkblue';
 const snakeboard = document.getElementById("game");
 
 snakeboard.width = document.documentElement.clientWidth
-snakeboard.height = document.documentElement.clientHeight - 40
+snakeboard.height = document.documentElement.clientHeight / 1.5
 
 const sqrSize = snakeboard.height / 40
 
