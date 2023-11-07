@@ -12,11 +12,11 @@ snakeboard.height = document.documentElement.clientHeight / 1.5
 const sqrSize = snakeboard.height / 50
 
 let snake = [
-    { x: snakeboard.width / 2, y: snakeboard.height / 2 },
-    { x: snakeboard.width / 2 - sqrSize, y: snakeboard.height / 2 },
-    { x: snakeboard.width / 2 - sqrSize * 2, y: snakeboard.height / 2 },
-    { x: snakeboard.width / 2 - sqrSize * 3, y: snakeboard.height / 2 },
-    { x: snakeboard.width / 2 - sqrSize * 4, y: snakeboard.height / 2 }
+    { x: snakeboard.width / 2.5, y: snakeboard.height / 2.5 },
+    { x: snakeboard.width / 2.5 - sqrSize, y: snakeboard.height / 2.5 },
+    { x: snakeboard.width / 2.5 - sqrSize * 2, y: snakeboard.height / 2.5 },
+    { x: snakeboard.width / 2.5 - sqrSize * 3, y: snakeboard.height / 2.5 },
+    { x: snakeboard.width / 2.5 - sqrSize * 4, y: snakeboard.height / 2.5 }
 ]
 
 let score = 0;
@@ -42,15 +42,15 @@ function reset() {
     snakeboard_ctx.fillStyle = 'black';
     snakeboard_ctx.font = `${sqrSize * 10}px sans-serif`;
     const text = `You lost. Score: ${score}.`;
-    snakeboard_ctx.fillText(text, snakeboard.width / 2, snakeboard.height / 2);
+    snakeboard_ctx.fillText(text, snakeboard.width / 2.5, snakeboard.height / 2.5);
     setTimeout(() => {
         clear_board();
         snake = [
-            { x: snakeboard.width / 2, y: snakeboard.height / 2 },
-            { x: snakeboard.width / 2 - sqrSize, y: snakeboard.height / 2 },
-            { x: snakeboard.width / 2 - sqrSize * 2, y: snakeboard.height / 2 },
-            { x: snakeboard.width / 2 - sqrSize * 3, y: snakeboard.height / 2 },
-            { x: snakeboard.width / 2 - sqrSize * 4, y: snakeboard.height / 2 }
+            { x: snakeboard.width / 2.5, y: snakeboard.height / 2.5 },
+            { x: snakeboard.width / 2.5 - sqrSize, y: snakeboard.height / 2.5 },
+            { x: snakeboard.width / 2.5 - sqrSize * 2, y: snakeboard.height / 2.5 },
+            { x: snakeboard.width / 2.5 - sqrSize * 3, y: snakeboard.height / 2.5 },
+            { x: snakeboard.width / 2.5 - sqrSize * 4, y: snakeboard.height / 2.5 }
         ]
         document.getElementById('score').innerHTML = score;
         score = 0;
