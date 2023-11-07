@@ -99,9 +99,9 @@ function hasGameEnded() {
 
     const hitLeftWall = snake[0].x < 0;
     const hitRightWall = snake[0].x > snakeboard.width - 10;
-    const hitToptWall = snake[0].y & lt; 0;
+    const hitToptWall = snake[0].y < 0;
     const hitBottomWall = snake[0].y > snakeboard.height - 10;
-
+    
     return hitLeftWall || hitRightWall || hitToptWall || hitBottomWall
 }
 
