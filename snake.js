@@ -30,7 +30,8 @@ function reset() {
     clear_board();
     score = 0;
     snakeboard_ctx.font = "48px serif";
-    snakeboard_ctx.fill(`You lost. Score: ${score}.`, 10, 50);
+    const text = `You lost. Score: ${score}.`;
+    snakeboard_ctx.fillText(text, 10, 50);
     setTimeout(() => {
         clear_board();
         main();
