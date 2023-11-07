@@ -61,7 +61,7 @@ function drawSnakePart(snakePart) {
 function moveSnake() {
     const head = { x: snake[0].x + dx, y: snake[0].y + dy };
     const has_eaten_food = snake[0].x === food_x && snake[0].y === food_y;
-    if (has_eaten_Food) {
+    if (has_eaten_food) {
         score += 10;
         document.getElementById('score').innerHTML = score;
         genFood();
