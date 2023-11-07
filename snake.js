@@ -9,7 +9,7 @@ const snakeboard = document.getElementById("game");
 snakeboard.width = document.documentElement.clientWidth
 snakeboard.height = document.documentElement.clientHeight / 1.5
 
-const sqrSize = snakeboard.width / 40
+const sqrSize = snakeboard.height / 50
 
 let snake = [
     { x: snakeboard.width / 2, y: snakeboard.height / 2 },
@@ -40,7 +40,7 @@ document.addEventListener("keydown", change_direction);
 function reset() {
     clear_board();
     snakeboard_ctx.fillStyle = 'black';
-    snakeboard_ctx.font = "48px sans-serif";
+    snakeboard_ctx.font = `${sqrSize * 10}px sans-serif`;
     const text = `You lost. Score: ${score}.`;
     snakeboard_ctx.fillText(text, snakeboard.width / 2, snakeboard.height / 2);
     setTimeout(() => {
