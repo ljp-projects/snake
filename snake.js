@@ -16,15 +16,22 @@ const snakeboard_ctx = snakeboard.getContext("2d");
 
 let dx = 10;
 let dy = 0;
-let changing_direction = false
+let score = 0;
+let changing_direction = false;
+let food_x;
+let food_y;
 
 main();
+genFood()
 
 function main() {
+
     if (hasGameEnded()) return;
+
     changing_direction = false;
     setTimeout(function onTick() {
         clearCanvas();
+        drawFood();
         moveSnake();
         drawSnake();
         // I AM RECURSION
@@ -53,8 +60,14 @@ function drawSnakePart(snakePart) {
 
 function moveSnake() {
     const head = { x: snake[0].x + dx, y: snake[0].y + dy };
-    snake.unshift(head);
-    snake.pop();
+    const has_eaten_food = snake[0].x === foodX && snake[0].y === foodY;
+    if (has_eaten_Food) {
+        score += 10;
+        document.getElementById('score').innerHTML = score;
+        genFood();
+    } else {
+        snake.pop();
+    }
 }
 
 function changeDir(event) {
@@ -103,6 +116,26 @@ function hasGameEnded() {
     const hitBottomWall = snake[0].y > snakeboard.height - 10;
 
     return hitLeftWall || hitRightWall || hitToptWall || hitBottomWall
+}
+
+function randomFood(min, max) {
+    return Math.round((Math.random() * (max - min) + min) / 10) * 10;
+}
+
+function genFood() {
+    food_x = randomFood(0, snakeboard.width - 10);
+    food_y = randomFood(0, snakeboard.height - 10);
+    snake.forEach(function has_snake_eaten_food(part) {
+        const has_eaten = part.x == food_x && part.y == food_y;
+        if (has_eaten) gen_food();
+    });
+}
+
+function drawFood() {
+    snakeboard_ctx.fillStyle = 'lightgreen';
+    snakeboard_ctx.strokestyle = 'darkgreen';
+    snakeboard_ctx.fillRect(food_x, food_y, 10, 10);
+    snakeboard_ctx.strokeRect(food_x, food_y, 10, 10);
 }
 
 document.addEventListener("keydown", changeDir)
