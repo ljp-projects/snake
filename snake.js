@@ -155,6 +155,7 @@ function main() {
         clear_canvas()
         const text = `Paused. Score: ${score}.`;
         snakeboard_ctx.fillText(text, snakeboard.width / 2.5, snakeboard.height / 2.5);
+        // I AM RECURSION
         main()
     } else if (!paused) {
         changing_direction = false;
