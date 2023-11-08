@@ -35,7 +35,7 @@ const right = document.getElementById("right")
 const left = document.getElementById("left")
 const up = document.getElementById("up")
 const down = document.getElementById("down")
-const pause = document.getElementById("pause")
+const pause = document.getElementById("toggle-pause")
 const snake_colour = document.getElementById("snake-colour")
 const food_colour = document.getElementById("food-colour")
 
