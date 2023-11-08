@@ -240,8 +240,8 @@ function load() {
         loaded_snook = []
         localStorage.getItem("snake_score").split(",").forEach((part) => {
             loaded_snook.push({
-                x: Number(part.split("+")[0]),
-                y: Number(part.split("+")[1])
+                x: Number(part.split("+")[0]) || snakeboard.width / 2.5 - sqrSize * loaded_snook.length,
+                y: Number(part.split("+")[1]) || snakeboard.height / 2.5
             })
         })
     }
