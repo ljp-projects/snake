@@ -154,6 +154,7 @@ function main() {
     } else if (paused) {
         const text = `Paused. Score: ${score}.`;
         snakeboard_ctx.fillText(text, snakeboard.width / 2.5, snakeboard.height / 2.5);
+        main()
     } else if (!paused) {
         changing_direction = false;
         setTimeout(function onTick() {
