@@ -243,7 +243,20 @@ function load() {
     snake = loaded_snook || [
         { x: snakeboard.width / 2.5, y: snakeboard.height / 2.5 }
     ]
-    main()
+    if (has_game_ended()) {
+        reset();
+        return;
+    } else {
+        changing_direction = false;
+        setTimeout(function onTick() {
+            clear_board();
+            drawFood();
+            move_snake();
+            drawSnake();
+            // I AM RECURSION
+            main();
+        }, 100)
+    }
     gen_food();
 }
 
