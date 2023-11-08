@@ -33,7 +33,7 @@ const right = document.getElementById("right")
 const left = document.getElementById("left")
 const up = document.getElementById("up")
 const down = document.getElementById("down")
-const colour = document.getElementById("snake-colour")
+const snake_colour = document.getElementById("snake-colour")
 
 if (!isMobile) {
     left.remove()
@@ -42,8 +42,8 @@ if (!isMobile) {
     down.remove()
 }
 
-colour.addEventListener('change', () => {
-    switch (colour.value) {
+snake_colour.addEventListener('change', () => {
+    switch (snake_colour.value) {
         case "0":
             snake_col = "#A5E2FF"
             break;
@@ -62,7 +62,16 @@ colour.addEventListener('change', () => {
         case "5":
             snake_col = "#183500"
             break;
-        default: 
+        case "6":
+            snake_col = "#EFA5A5"
+            break;
+        case "7":
+            snake_col = "#DE4C48"
+            break;
+        case "8":
+            snake_col = "#350A00"
+            break;
+        default:
             snake_col = "black"
             break;
     }
