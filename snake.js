@@ -6,7 +6,7 @@ const isMobile = () => {
 
 const board_border = 'black';
 const board_background = "white";
-const snake_col = 'lightblue';
+let snake_col = 'black';
 const snake_border = 'darkblue';
 
 const snakeboard = document.getElementById("game");
@@ -15,7 +15,7 @@ const gameSize = (document.documentElement.clientWidth + document.documentElemen
 
 snakeboard.width = gameSize
 snakeboard.height = gameSize
-const sqrSize = snakeboard.height / 50
+const sqrSize = snakeboard.height / 40
 
 let snake = [
     { x: snakeboard.width / 2.5, y: snakeboard.height / 2.5 }
@@ -34,6 +34,7 @@ const right = document.getElementById("right")
 const left = document.getElementById("left")
 const up = document.getElementById("up")
 const down = document.getElementById("down")
+const colour = document.getElementById("snake-colour")
 
 if (!isMobile) {
     left.remove()
@@ -41,6 +42,29 @@ if (!isMobile) {
     up.remove()
     down.remove()
 }
+
+colour.addEventListener('change', () => {
+    switch (colour.value) {
+        case "0":
+            snake_col = "#A5E2FF"
+            break;
+        case "1":
+            snake_col = "#00A8F7"
+            break;
+        case "2":
+            snake_col = "#002E44"
+            break;
+        case "3":
+            snake_col = "#CBFFA5"
+            break;
+        case "4":
+            snake_col = "#8EF73B"
+            break;
+        case "5":
+            snake_col = "#183500"
+            break;
+    }
+})
 
 document.addEventListener("keydown", change_direction);
 
