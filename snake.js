@@ -33,9 +33,6 @@ const right = document.getElementById("right")
 const left = document.getElementById("left")
 const up = document.getElementById("up")
 const down = document.getElementById("down")
-main();
-
-gen_food();
 
 document.addEventListener("keydown", change_direction);
 
@@ -258,6 +255,9 @@ function load() {
         { x: snakeboard.width / 2.5 - sqrSize * 3, y: snakeboard.height / 2.5 },
         { x: snakeboard.width / 2.5 - sqrSize * 4, y: snakeboard.height / 2.5 }
     ]
+
+    main()
+    gen_food();
 }
 
 load()
