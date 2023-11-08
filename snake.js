@@ -13,11 +13,7 @@ snakeboard.height = gameSize
 const sqrSize = snakeboard.height / 50
 
 let snake = [
-    { x: snakeboard.width / 2.5, y: snakeboard.height / 2.5 },
-    { x: snakeboard.width / 2.5 - sqrSize, y: snakeboard.height / 2.5 },
-    { x: snakeboard.width / 2.5 - sqrSize * 2, y: snakeboard.height / 2.5 },
-    { x: snakeboard.width / 2.5 - sqrSize * 3, y: snakeboard.height / 2.5 },
-    { x: snakeboard.width / 2.5 - sqrSize * 4, y: snakeboard.height / 2.5 }
+    { x: snakeboard.width / 2.5, y: snakeboard.height / 2.5 }
 ]
 
 let score = 0;
@@ -45,11 +41,7 @@ function reset() {
     setTimeout(() => {
         clear_board();
         snake = [
-            { x: snakeboard.width / 2.5, y: snakeboard.height / 2.5 },
-            { x: snakeboard.width / 2.5 - sqrSize, y: snakeboard.height / 2.5 },
-            { x: snakeboard.width / 2.5 - sqrSize * 2, y: snakeboard.height / 2.5 },
-            { x: snakeboard.width / 2.5 - sqrSize * 3, y: snakeboard.height / 2.5 },
-            { x: snakeboard.width / 2.5 - sqrSize * 4, y: snakeboard.height / 2.5 }
+            { x: snakeboard.width / 2.5, y: snakeboard.height / 2.5 }
         ]
         score = 0;
         document.getElementById('score').innerHTML = score;
@@ -249,13 +241,8 @@ function load() {
     score = loaded_score
     high_score = loaded_best
     snake = loaded_snook || [
-        { x: snakeboard.width / 2.5, y: snakeboard.height / 2.5 },
-        { x: snakeboard.width / 2.5 - sqrSize, y: snakeboard.height / 2.5 },
-        { x: snakeboard.width / 2.5 - sqrSize * 2, y: snakeboard.height / 2.5 },
-        { x: snakeboard.width / 2.5 - sqrSize * 3, y: snakeboard.height / 2.5 },
-        { x: snakeboard.width / 2.5 - sqrSize * 4, y: snakeboard.height / 2.5 }
+        { x: snakeboard.width / 2.5, y: snakeboard.height / 2.5 }
     ]
-
     main()
     gen_food();
 }
