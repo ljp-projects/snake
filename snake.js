@@ -7,7 +7,6 @@ const isMobile = () => {
 const board_border = 'black';
 const board_background = "white";
 let snake_col = 'black';
-const snake_border = 'darkblue';
 
 const snakeboard = document.getElementById("game");
 
@@ -62,6 +61,9 @@ colour.addEventListener('change', () => {
             break;
         case "5":
             snake_col = "#183500"
+            break;
+        default: 
+            snake_col = "black"
             break;
     }
 })
@@ -128,9 +130,7 @@ function drawFood() {
 
 function drawSnakePart(snakePart) {
     snakeboard_ctx.fillStyle = snake_col;
-    snakeboard_ctx.strokestyle = snake_border;
     snakeboard_ctx.fillRect(snakePart.x, snakePart.y, sqrSize, sqrSize);
-    snakeboard_ctx.strokeRect(snakePart.x, snakePart.y, sqrSize, sqrSize);
 }
 
 function has_game_ended() {
