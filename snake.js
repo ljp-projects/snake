@@ -21,6 +21,7 @@ let snake = [
 ]
 
 let score = 0;
+let high_score = 0;
 let changing_direction = false;
 let food_x;
 let food_y;
@@ -129,10 +130,16 @@ function move_snake() {
     if (has_eaten_food) {
         score += 1;
         document.getElementById('score').innerHTML = score;
+        if (score > high_score) {
+            high_score = score
+        }
+        document.getElementById('best').innerHTML = high_score;
         gen_food();
     } else {
         snake.pop();
     }
+
+    save()
 }
 
 function random_food(min, max) {
@@ -216,3 +223,35 @@ right.addEventListener('click', () => {
         dy = 0;
     }
 })
+
+function save() {
+    localStorage.setItem("snake_score", score)
+    localStorage.setItem("snake_best", high_score)
+    let snook = ""
+    snake.forEach((part) => {
+        snook.concat(part.x)
+        snook.concat("-")
+        snook.concat(part.y)
+        snook.concat(",")
+    })
+    localStorage.setItem("snake_player", snook)
+}
+
+function load() {
+    const loaded_score = Number(localStorage.getItem("snake_score")) || 0
+    const loaded_best = Number(localStorage.getItem("snake_best")) || 0
+    const loaded_snook = []
+
+    localStorage.getItem("snake_score").split(",").forEach((part) => {
+        loaded_snook[loaded_snook.length + 1] = {
+            x: part.split("-")[0],
+            y: part.split("-")[1]
+        }
+    })
+
+    score = loaded_score
+    high_score = loaded_best
+    snake = loaded_snook
+}
+
+load()
