@@ -227,14 +227,11 @@ right.addEventListener('click', () => {
 function save() {
     localStorage.setItem("snake_score", score)
     localStorage.setItem("snake_best", high_score)
-    let snook = ""
+    let snook = []
     snake.forEach((part) => {
-        snook.concat(part.x)
-        snook.concat("-")
-        snook.concat(part.y)
-        snook.concat(",")
+        snook.push(`${part.x}+${part.y}`)
     })
-    localStorage.setItem("snake_player", snook)
+    localStorage.setItem("snake_player", snook.toString())
 }
 
 function load() {
@@ -246,8 +243,8 @@ function load() {
         loaded_snook = []
         localStorage.getItem("snake_score").split(",").forEach((part) => {
             loaded_snook.push({
-                x: part.split("-")[0],
-                y: part.split("-")[1]
+                x: Number(part.split("+")[0]),
+                y: Number(part.split("+")[1])
             })
         })
     }
