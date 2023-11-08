@@ -152,7 +152,7 @@ function main() {
         reset();
         return;
     } else if (paused) {
-        clear_canvas()
+        clear_board()
         const text = `Paused. Score: ${score}.`;
         snakeboard_ctx.fillText(text, snakeboard.width / 2.5, snakeboard.height / 2.5);
         // I AM RECURSION
