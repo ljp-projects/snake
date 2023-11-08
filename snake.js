@@ -125,7 +125,7 @@ function move_snake() {
     const head = { x: snake[0].x + dx, y: snake[0].y + dy };
     snake.unshift(head);
   
-    const has_eaten_food = snake[0].x >= food_x && snake[0].x < food_x + sqrSize && snake[0].y >= food_y && snake[0].y < food_y + sqrSize;
+    const has_eaten_food = (snake[0].x >= food_x && snake[0].x < food_x + sqrSize && snake[0].y >= food_y && snake[0].y < food_y + sqrSize) || (part.x == food_x && part.y == food_y);
     if (has_eaten_food) {
       score += 1;
       document.getElementById('score').innerHTML = score;
@@ -143,7 +143,7 @@ function gen_food() {
     food_x = random_food(0, snakeboard.width - sqrSize);
     food_y = random_food(0, snakeboard.height - sqrSize);
     snake.forEach(function has_snake_eaten_food(part) {
-        const has_eaten = part.x == food_x && part.y == food_y;
+        const has_eaten = (snake[0].x >= food_x && snake[0].x < food_x + sqrSize && snake[0].y >= food_y && snake[0].y < food_y + sqrSize) || (part.x == food_x && part.y == food_y);
         if (has_eaten) gen_food();
     });
 }
