@@ -41,7 +41,7 @@ document.addEventListener("keydown", change_direction);
 function reset() {
     clear_board();
     snakeboard_ctx.fillStyle = 'black';
-    snakeboard_ctx.font = `${sqrSize}px sans-serif`;
+    snakeboard_ctx.font = `${sqrSize * 2.5}px sans-serif`;
     const text = `You lost. Score: ${score}.`;
     snakeboard_ctx.fillText(text, snakeboard.width / 2.5, snakeboard.height / 2.5);
     setTimeout(() => {
