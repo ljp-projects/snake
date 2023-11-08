@@ -152,11 +152,13 @@ function main() {
         reset();
         return;
     } else if (paused) {
-        clear_board()
-        const text = `Paused. Score: ${score}.`;
-        snakeboard_ctx.fillText(text, snakeboard.width / 2.5, snakeboard.height / 2.5);
-        // I AM RECURSION
-        main()
+        setTimeout(() => {
+            clear_board()
+            const text = `Paused. Score: ${score}.`;
+            snakeboard_ctx.fillText(text, snakeboard.width / 2.5, snakeboard.height / 2.5);
+            // I AM RECURSION
+            main()
+        }, 100)
     } else if (!paused) {
         changing_direction = false;
         setTimeout(function onTick() {
