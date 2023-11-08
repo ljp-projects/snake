@@ -240,18 +240,27 @@ function save() {
 function load() {
     const loaded_score = Number(localStorage.getItem("snake_score")) || 0
     const loaded_best = Number(localStorage.getItem("snake_best")) || 0
-    const loaded_snook = []
+    let loaded_snook = null
 
-    localStorage.getItem("snake_score").split(",").forEach((part) => {
-        loaded_snook[loaded_snook.length + 1] = {
-            x: part.split("-")[0],
-            y: part.split("-")[1]
-        }
-    })
+    if (localStorage.getItem("snake_score")) {
+        loaded_snook = []
+        localStorage.getItem("snake_score").split(",").forEach((part) => {
+            loaded_snook.push({
+                x: part.split("-")[0],
+                y: part.split("-")[1]
+            })
+        })
+    }
 
     score = loaded_score
     high_score = loaded_best
-    snake = loaded_snook
+    snake = loaded_snook || [
+        { x: snakeboard.width / 2.5, y: snakeboard.height / 2.5 },
+        { x: snakeboard.width / 2.5 - sqrSize, y: snakeboard.height / 2.5 },
+        { x: snakeboard.width / 2.5 - sqrSize * 2, y: snakeboard.height / 2.5 },
+        { x: snakeboard.width / 2.5 - sqrSize * 3, y: snakeboard.height / 2.5 },
+        { x: snakeboard.width / 2.5 - sqrSize * 4, y: snakeboard.height / 2.5 }
+    ]
 }
 
 load()
