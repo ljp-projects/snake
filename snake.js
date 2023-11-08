@@ -7,6 +7,7 @@ const isMobile = () => {
 const board_border = 'black';
 const board_background = "white";
 let snake_col = 'black';
+let food_col = 'green'
 
 const snakeboard = document.getElementById("game");
 
@@ -27,13 +28,16 @@ let food_x;
 let food_y;
 let dx = sqrSize;
 let dy = 0;
+let paused = false;
 
 const snakeboard_ctx = snakeboard.getContext("2d");
 const right = document.getElementById("right")
 const left = document.getElementById("left")
 const up = document.getElementById("up")
 const down = document.getElementById("down")
+const pause = document.getElementById("pause")
 const snake_colour = document.getElementById("snake-colour")
+const food_colour = document.getElementById("food-colour")
 
 if (!isMobile) {
     left.remove()
@@ -41,6 +45,12 @@ if (!isMobile) {
     up.remove()
     down.remove()
 }
+
+pause.addEventListener('click', () => {
+    paused = !paused
+    if (paused) pause.textContent = "UNPAUSE"
+    if (!paused) pause.textContent = "PAUSE"
+})
 
 snake_colour.addEventListener('change', () => {
     switch (snake_colour.value) {
@@ -77,6 +87,41 @@ snake_colour.addEventListener('change', () => {
     }
 })
 
+food_colour.addEventListener('change', () => {
+    switch (food_colour.value) {
+        case "0":
+            food_col = "#A5E2FF"
+            break;
+        case "1":
+            food_col = "#00A8F7"
+            break;
+        case "2":
+            food_col = "#002E44"
+            break;
+        case "3":
+            food_col = "#CBFFA5"
+            break;
+        case "4":
+            food_col = "#8EF73B"
+            break;
+        case "5":
+            food_col = "#183500"
+            break;
+        case "6":
+            food_col = "#EFA5A5"
+            break;
+        case "7":
+            food_col = "#DE4C48"
+            break;
+        case "8":
+            food_col = "#350A00"
+            break;
+        default:
+            food_col = "black"
+            break;
+    }
+})
+
 document.addEventListener("keydown", change_direction);
 
 function reset() {
@@ -106,6 +151,9 @@ function main() {
     if (has_game_ended()) {
         reset();
         return;
+    } else if (paused) {
+        const text = `Paused. Score: ${score}.`;
+        snakeboard_ctx.fillText(text, snakeboard.width / 2.5, snakeboard.height / 2.5);
     } else {
         changing_direction = false;
         setTimeout(function onTick() {
@@ -131,10 +179,8 @@ function drawSnake() {
 }
 
 function drawFood() {
-    snakeboard_ctx.fillStyle = 'lightgreen';
-    snakeboard_ctx.strokestyle = 'darkgreen';
+    snakeboard_ctx.fillStyle = food_col;
     snakeboard_ctx.fillRect(food_x, food_y, sqrSize, sqrSize);
-    snakeboard_ctx.strokeRect(food_x, food_y, sqrSize, sqrSize);
 }
 
 function drawSnakePart(snakePart) {
