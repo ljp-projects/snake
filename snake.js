@@ -53,8 +53,8 @@ function reset() {
             { x: snakeboard.width / 2.5 - sqrSize * 3, y: snakeboard.height / 2.5 },
             { x: snakeboard.width / 2.5 - sqrSize * 4, y: snakeboard.height / 2.5 }
         ]
-        document.getElementById('score').innerHTML = score;
         score = 0;
+        document.getElementById('score').innerHTML = score;
         changing_direction = false;
         food_x;
         food_y;
@@ -124,16 +124,16 @@ function has_game_ended() {
 function move_snake() {
     const head = { x: snake[0].x + dx, y: snake[0].y + dy };
     snake.unshift(head);
-  
-    const has_eaten_food = snake[0].x >= food_x && snake[0].x < food_x + sqrSize / 2 && snake[0].y >= food_y && snake[0].y < food_y + sqrSize / 2;
+
+    const has_eaten_food = snake[0].x >= food_x && snake[0].x < food_x + sqrSize && snake[0].y >= food_y && snake[0].y < food_y + sqrSize;
     if (has_eaten_food) {
-      score += 1;
-      document.getElementById('score').innerHTML = score;
-      gen_food();
+        score += 1;
+        document.getElementById('score').innerHTML = score;
+        gen_food();
     } else {
-      snake.pop();
+        snake.pop();
     }
-  }
+}
 
 function random_food(min, max) {
     return Math.round((Math.random() * (max - min) + min) / sqrSize) * sqrSize;
