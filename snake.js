@@ -369,8 +369,8 @@
         }
         if (keyPressed === SPACE_KEY) {
             paused = !paused
-            if (paused) pause.textContent = "UNPAUSE"
-            if (!paused) pause.textContent = "PAUSE"
+            if (paused && isMobile()) pause.textContent = "UNPAUSE"
+            if (!paused && isMobile()) pause.textContent = "PAUSE"
         }
     }
 
