@@ -114,6 +114,7 @@
                 snake_col = "black"
                 break;
         }
+        save()
     })
 
     bg_colour.addEventListener('change', () => {
@@ -167,6 +168,7 @@
                 board_background = "blue"
                 break;
         }
+        save()
     })
 
     food_colour.addEventListener('change', () => {
@@ -220,6 +222,7 @@
                 food_col = "black"
                 break;
         }
+        save()
     })
 
     document.addEventListener("keydown", change_direction);
