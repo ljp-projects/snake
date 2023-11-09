@@ -233,6 +233,7 @@
             food_y;
             dx = sqrSize;
             dy = 0;
+            gen_food()
             main();
         }, 3000)
     }
@@ -415,6 +416,9 @@
     function save() {
         localStorage.setItem("snake_score", score)
         localStorage.setItem("snake_best", high_score)
+        localStorage.setItem("snake_bg_colour", board_background)
+        localStorage.setItem("snake_player_colour", snake_col)
+        localStorage.setItem("snake_food_colour", food_col)
         let snook = []
         snake.forEach((part) => {
             snook.push(`${part.x}+${part.y}`)
@@ -425,6 +429,9 @@
     function load() {
         const loaded_score = Number(localStorage.getItem("snake_score")) || 0
         const loaded_best = Number(localStorage.getItem("snake_best")) || 0
+        const loaded_snake_col = Number(localStorage.getItem("snake_player_colour")) || "black"
+        const loaded_food_col = Number(localStorage.getItem("snake_food_colour")) || "black"
+        const loaded_board_background = Number(localStorage.getItem("snake_bg_colour")) || "blue"
         let loaded_snook = null
 
         if (localStorage.getItem("snake_score")) {
@@ -439,6 +446,9 @@
 
         score = loaded_score
         high_score = loaded_best
+        snake_col = loaded_snake_col
+        food_col = loaded_food_col
+        board_background = loaded_board_background
         snake = loaded_snook.every(element => element !== null) ? loaded_snook
             : [{ x: snakeboard.width / 2.5, y: snakeboard.height / 2.5 }]
 
