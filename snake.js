@@ -11,6 +11,15 @@
 
     const snakeboard = document.getElementById("game");
 
+    document.addEventListener('keydown', (event) => {
+        if (event.keyCode === 32) {
+            paused = !paused
+            console.log(paused)
+            if (paused && isMobile()) pause.textContent = "UNPAUSE"
+            if (!paused && isMobile()) pause.textContent = "PAUSE"
+        }
+    })
+
     const gameSize = (document.documentElement.clientWidth + document.documentElement.clientHeight / 1.5 + ((document.documentElement.clientHeight + document.documentElement.clientWidth) / 2)) / 5
 
     snakeboard.width = gameSize
@@ -367,12 +376,6 @@
         if (keyPressed === DOWN_KEY && !goingUp) {
             dx = 0;
             dy = sqrSize;
-        }
-        if (keyPressed === SPACE_KEY) {
-            paused = !paused
-            console.log(paused)
-            if (paused && isMobile()) pause.textContent = "UNPAUSE"
-            if (!paused && isMobile()) pause.textContent = "PAUSE"
         }
     }
 
