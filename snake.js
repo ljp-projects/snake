@@ -258,6 +258,8 @@
         } else if (paused) {
             setTimeout(() => {
                 // I AM RECURSION
+                drawFood()
+                drawSnake()
                 main()
             }, 100)
         } else if (!paused) {
