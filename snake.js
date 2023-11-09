@@ -8,7 +8,7 @@
     const board_border = 'black';
     const board_background = "white";
     let snake_col = 'black';
-    let food_col = 'green'
+    let food_col = 'black'
 
     const snakeboard = document.getElementById("game");
 
@@ -82,6 +82,24 @@
             case "8":
                 snake_col = "#350A00"
                 break;
+            case "9":
+                snake_col = "#F8A5FF"
+                break;
+            case "10":
+                snake_col = "#EF37FF"
+                break;
+            case "11":
+                snake_col = "#35003A"
+                break;
+            case "12":
+                snake_col = "#FFF3A5"
+                break;
+            case "13":
+                snake_col = "#FFEF12"
+                break;
+            case "14":
+                snake_col = "#353200"
+                break;
             default:
                 snake_col = "black"
                 break;
@@ -116,6 +134,24 @@
                 break;
             case "8":
                 food_col = "#350A00"
+                break;
+            case "9":
+                food_col = "#F8A5FF"
+                break;
+            case "10":
+                food_col = "#EF37FF"
+                break;
+            case "11":
+                food_col = "#35003A"
+                break;
+            case "12":
+                food_col = "#FFF3A5"
+                break;
+            case "13":
+                foode_col = "#FFEF12"
+                break;
+            case "14":
+                food_col = "#353200"
                 break;
             default:
                 food_col = "black"
@@ -186,12 +222,16 @@
 
     function drawFood() {
         snakeboard_ctx.fillStyle = food_col;
+        snakeboard_ctx.strokeStyle = food_col;
         snakeboard_ctx.fillRect(food_x, food_y, sqrSize, sqrSize);
+        snakeboard_ctx.strokeRect(food_x, food_y, sqrSize, sqrSize);
     }
 
     function drawSnakePart(snakePart) {
         snakeboard_ctx.fillStyle = snake_col;
+        snakeboard_ctx.strokeStyle = snake_col;
         snakeboard_ctx.fillRect(snakePart.x, snakePart.y, sqrSize, sqrSize);
+        snakeboard_ctx.strokeRect(snakePart.x, snakePart.y, sqrSize, sqrSize);
     }
 
     function has_game_ended() {
