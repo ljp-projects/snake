@@ -5,8 +5,7 @@
         return check;
     };
 
-    const board_border = 'black';
-    const board_background = "white";
+    let board_background = "blue";
     let snake_col = 'black';
     let food_col = 'black'
 
@@ -39,6 +38,7 @@
     const pause = document.getElementById("toggle-pause")
     const snake_colour = document.getElementById("snake-colour")
     const food_colour = document.getElementById("food-colour")
+    const bg_colour = document.getElementById("bg-colour")
 
     if (!isMobile()) {
         left.remove()
@@ -103,6 +103,59 @@
                 break;
             default:
                 snake_col = "black"
+                break;
+        }
+    })
+
+    bg_colour.addEventListener('change', () => {
+        switch (bg_colour.value) {
+            case "0":
+                board_background = "#A5E2FF"
+                break;
+            case "1":
+                board_background = "#00A8F7"
+                break;
+            case "2":
+                board_background = "#002E44"
+                break;
+            case "3":
+                board_background = "#CBFFA5"
+                break;
+            case "4":
+                board_background = "#8EF73B"
+                break;
+            case "5":
+                board_background = "#183500"
+                break;
+            case "6":
+                board_background = "#EFA5A5"
+                break;
+            case "7":
+                board_background = "#DE4C48"
+                break;
+            case "8":
+                board_background = "#350A00"
+                break;
+            case "9":
+                board_background = "#F8A5FF"
+                break;
+            case "10":
+                board_background = "#EF37FF"
+                break;
+            case "11":
+                board_background = "#35003A"
+                break;
+            case "12":
+                board_background = "#FFF3A5"
+                break;
+            case "13":
+                board_background = "#FFEF12"
+                break;
+            case "14":
+                board_background = "#353200"
+                break;
+            default:
+                board_background = "black"
                 break;
         }
     })
@@ -212,7 +265,7 @@
 
     function clear_board() {
         snakeboard_ctx.fillStyle = board_background;
-        snakeboard_ctx.strokestyle = board_border;
+        snakeboard_ctx.strokestyle = board_background;
         snakeboard_ctx.fillRect(0, 0, snakeboard.width, snakeboard.height);
         snakeboard_ctx.strokeRect(0, 0, snakeboard.width, snakeboard.height);
     }
