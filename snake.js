@@ -45,6 +45,7 @@
         right.remove()
         up.remove()
         down.remove()
+        pause.remove()
     }
 
     pause.addEventListener('click', () => {
@@ -288,6 +289,7 @@
         const RIGHT_KEY = 39;
         const UP_KEY = 38;
         const DOWN_KEY = 40;
+        const SPACE_KEY = 32;
 
         if (changing_direction) return;
         changing_direction = true;
@@ -311,6 +313,11 @@
         if (keyPressed === DOWN_KEY && !goingUp) {
             dx = 0;
             dy = sqrSize;
+        }
+        if (keyPressed === SPACE_KEY) {
+            paused = !paused
+            if (paused) pause.textContent = "UNPAUSE"
+            if (!paused) pause.textContent = "PAUSE"
         }
     }
 
