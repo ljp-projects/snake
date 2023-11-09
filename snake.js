@@ -257,9 +257,6 @@
             return;
         } else if (paused) {
             setTimeout(() => {
-                clear_board()
-                const text = `Paused. Score: ${score}.`;
-                snakeboard_ctx.fillText(text, snakeboard.width / 2.5, snakeboard.height / 2.5);
                 // I AM RECURSION
                 main()
             }, 100)
