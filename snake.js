@@ -155,7 +155,7 @@
                 board_background = "#353200"
                 break;
             default:
-                board_background = "black"
+                board_background = "blue"
                 break;
         }
     })
