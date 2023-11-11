@@ -431,20 +431,16 @@ function change_direction(event) {
     const goingRight = dx === sqrSize;
     const goingLeft = dx === -sqrSize;
     if (keyPressed === LEFT_KEY && !goingRight) {
-        dx = -sqrSize;
-        dy = 0;
+        dx -= sqrSize;
     }
     if (keyPressed === UP_KEY && !goingDown) {
-        dx = 0;
-        dy = -sqrSize;
+        dy -= sqrSize;
     }
     if (keyPressed === RIGHT_KEY && !goingLeft) {
-        dx = sqrSize;
-        dy = 0;
+        dx += sqrSize;
     }
     if (keyPressed === DOWN_KEY && !goingUp) {
-        dx = 0;
-        dy = sqrSize;
+        dy += sqrSize;
     }
 }
 
@@ -453,7 +449,7 @@ down.addEventListener('click', () => {
     const goingUp = dy === sqrSize;
 
     if (!goingUp) {
-        dy = sqrSize;
+        dy += sqrSize;
     }
 })
 
@@ -462,7 +458,7 @@ up.addEventListener('click', () => {
     const goingDown = dy === -sqrSize;
 
     if (!goingDown) {
-        dy = -sqrSize;
+        dy -= sqrSize;
     }
 })
 
@@ -471,7 +467,7 @@ left.addEventListener('click', () => {
     const goingRight = dx === sqrSize;
 
     if (!goingRight) {
-        dx = -sqrSize;
+        dx -= sqrSize;
     }
 })
 
@@ -480,7 +476,7 @@ right.addEventListener('click', () => {
     const goingLeft = dx === -sqrSize;
 
     if (!goingLeft) {
-        dx = sqrSize;
+        dx += sqrSize;
     }
 })
 
