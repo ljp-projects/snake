@@ -430,16 +430,16 @@ function change_direction(event) {
     const goingDown = dy === sqrSize;
     const goingRight = dx === sqrSize;
     const goingLeft = dx === -sqrSize;
-    if (keyPressed === LEFT_KEY && !goingRight) {
+    if (keyPressed === LEFT_KEY) {
         dx -= sqrSize;
     }
-    if (keyPressed === UP_KEY && !goingDown) {
+    if (keyPressed === UP_KEY) {
         dy -= sqrSize;
     }
-    if (keyPressed === RIGHT_KEY && !goingLeft) {
+    if (keyPressed === RIGHT_KEY) {
         dx += sqrSize;
     }
-    if (keyPressed === DOWN_KEY && !goingUp) {
+    if (keyPressed === DOWN_KEY) {
         dy += sqrSize;
     }
 }
@@ -447,37 +447,25 @@ function change_direction(event) {
 // Make snake go down when the down button is clicked
 down.addEventListener('click', () => {
     const goingUp = dy === sqrSize;
-
-    if (!goingUp) {
-        dy += sqrSize;
-    }
+    dy += sqrSize;
 })
 
 // Make snake go up when the up button is clicked
 up.addEventListener('click', () => {
     const goingDown = dy === -sqrSize;
-
-    if (!goingDown) {
-        dy -= sqrSize;
-    }
+    dy -= sqrSize;
 })
 
 // Make snake go left when the left button is clicked
 left.addEventListener('click', () => {
     const goingRight = dx === sqrSize;
-
-    if (!goingRight) {
-        dx -= sqrSize;
-    }
+    dx -= sqrSize;
 })
 
 // Make snake go right when the right button is clicked
 right.addEventListener('click', () => {
     const goingLeft = dx === -sqrSize;
-
-    if (!goingLeft) {
-        dx += sqrSize;
-    }
+    dx += sqrSize;
 })
 
 // Save the player's data (COMPUTER ONLY)
