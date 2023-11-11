@@ -430,45 +430,63 @@ function change_direction(event) {
     const goingDown = dy === sqrSize;
     const goingRight = dx === sqrSize;
     const goingLeft = dx === -sqrSize;
-    if (keyPressed === LEFT_KEY) {
-        dx -= sqrSize;
+    if (keyPressed === LEFT_KEY && !goingRight) {
+        dx = -sqrSize;
+        dy = 0;
     }
-    if (keyPressed === UP_KEY) {
-        dy -= sqrSize;
+    if (keyPressed === UP_KEY && !goingDown) {
+        dx = 0;
+        dy = -sqrSize;
     }
-    if (keyPressed === RIGHT_KEY) {
-        dx += sqrSize;
+    if (keyPressed === RIGHT_KEY && !goingLeft) {
+        dx = sqrSize;
+        dy = 0;
     }
-    if (keyPressed === DOWN_KEY) {
-        dy += sqrSize;
+    if (keyPressed === DOWN_KEY && !goingUp) {
+        dx = 0;
+        dy = sqrSize;
     }
 }
 
 // Make snake go down when the down button is clicked
 down.addEventListener('click', () => {
     const goingUp = dy === sqrSize;
-    dy += sqrSize;
+
+    if (!goingUp) {
+        dx = 0;
+        dy = sqrSize;
+    }
 })
 
 // Make snake go up when the up button is clicked
 up.addEventListener('click', () => {
     const goingDown = dy === -sqrSize;
-    dy -= sqrSize;
+
+    if (!goingDown) {
+        dx = 0;
+        dy = -sqrSize;
+    }
 })
 
 // Make snake go left when the left button is clicked
 left.addEventListener('click', () => {
     const goingRight = dx === sqrSize;
-    dx -= sqrSize;
+
+    if (!goingRight) {
+        dx = -sqrSize;
+        dy = 0;
+    }
 })
 
-// Make snake go right when the right button is clicked
 right.addEventListener('click', () => {
     const goingLeft = dx === -sqrSize;
-    dx += sqrSize;
+
+    if (!goingLeft) {
+        dx = sqrSize;
+        dy = 0;
+    }
 })
 
-// Save the player's data (COMPUTER ONLY)
 function save() {
     localStorage.setItem("snake_score", score)
     localStorage.setItem("snake_best", high_score)
@@ -482,7 +500,6 @@ function save() {
     localStorage.setItem("snake_player", snook.toString())
 }
 
-// Load the player's data (COMPUTER ONLY)
 function load() {
     const loaded_score = Number(localStorage.getItem("snake_score")) || 0
     const loaded_best = Number(localStorage.getItem("snake_best")) || 0
